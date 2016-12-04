@@ -21,7 +21,7 @@ describe('primus-rooms-adapter', function() {
     var adapter = new Adapter({metroplex: true});
     expect(adapter.rooms).to.be(undefined);
     expect(adapter.sids).to.be(undefined);
-    expect(adapter.namespace).to.be('bumblebee');
+    expect(adapter.namespace).to.be('bumblebee:');
     expect(adapter.omegaSupreme).to.be(false);
     expect(adapter.metroplex).to.be(true);
     expect(adapter.redis).to.be.an('object');
