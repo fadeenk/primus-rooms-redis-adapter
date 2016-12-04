@@ -2,6 +2,7 @@
 
 [![Build Status](https://img.shields.io/travis/fadeenk/primus-rooms-redis-adapter/master.svg)](https://travis-ci.org/fadeenk/primus-rooms-redis-adapter)
 [![NPM version](https://img.shields.io/npm/v/primus-rooms-redis-adapter.svg)](https://www.npmjs.com/package/primus-rooms-redis-adapter)
+[![dependencies Status](https://david-dm.org/fadeenk/primus-rooms-redis-adapter/status.svg)](https://david-dm.org/fadeenk/primus-rooms-redis-adapter)
 
 Redis adapter for [primus-rooms](https://github.com/cayasso/primus-rooms). 
 Provides integration with [metroplex](https://github.com/primus/metroplex) and [omega-supreme](https://github.com/primus/omega-supreme) to allow for multiple servers support.
