@@ -1,0 +1,13 @@
+{
+  "preset": "google",
+  "excludeFiles": ["**/*.spec.js", "node_modules/**/*"],
+  "maximumLineLength": {
+    "value": 120,
+    "allExcept": ["comments"]
+  },
+  "jsDoc":{
+    "checkAnnotations": {
+      "preset": "jsdoc3"
+    }
+  }
+}

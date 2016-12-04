@@ -1,0 +1,1 @@
+primus-rooms-redis-adapter

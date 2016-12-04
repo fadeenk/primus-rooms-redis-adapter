@@ -1,0 +1,38 @@
+{
+  "name": "primus-rooms-redis-adapter",
+  "version": "0.0.1",
+  "description": "redis adapter for primus-rooms plugin. Supports omega-supreme and metroplex",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "eslint . && jscs .",
+    "test": "./node_modules/.bin/mocha"
+  },
+  "author": "Fadee Kannah <fadeekannah@gmail.com>",
+  "homepage": "https://github.com/fadeenk/primus-rooms-redis-adapter",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fadeenk/primus-rooms-redis-adapter.git"
+  },
+  "keywords": [
+    "primus",
+    "primus-rooms",
+    "primus-rooms-adapter",
+    "primus-rooms-redis-adapter",
+    "rooms",
+    "store",
+    "redis",
+    "adapter"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "3.11.1",
+    "eslint-config-google": "0.7.1",
+    "expect.js": "0.3.1",
+    "jscs": "3.0.7",
+    "mocha": "3.2.0"
+  },
+  "dependencies": {
+    "ioredis": "2.4.1",
+    "primus-rooms-adapter": "0.3.2"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "extends": "google",
+  "rules": {
+    "max-len": [1, 120, 4],
+    "no-var": 0
+  }
+}
