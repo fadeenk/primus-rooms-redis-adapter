@@ -1,6 +1,6 @@
 {
   "name": "primus-rooms-redis-adapter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "redis adapter for primus-rooms plugin. Supports omega-supreme and metroplex",
   "main": "index.js",
   "scripts": {
