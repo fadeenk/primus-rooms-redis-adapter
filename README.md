@@ -39,7 +39,7 @@ var primus = new Primus(http, {
   },
 });
 
-// by setting the property
+// or by setting the property
 primus.adapter = new Adapter();
 ```
 
@@ -54,13 +54,12 @@ related to the multiple servers setup.
 var options = {
   omegaSupreme: true,
   metroplex: true,
-  getClients: function() {
-    return Object.keys(primus.connections);
-  },
-  addRemoveClientsOnExit: true,
+  primus: primus,
 };
 
-adapter.config(options);
+adapter.config(options, function(){
+  console.log('clean exit');
+});
 // or 
 primus.adapter.config(options);
 ```
@@ -77,16 +76,20 @@ Name                   | Type     | Description                               | 
 namespace              | String   | namespace to use in redis storage         | `bumblebee`
 omegaSupreme           | Boolean  | Use `omega-supreme`                       | `false`
 metroplex              | Boolean  | Use `metroplex`                           | `false`
-addRemoveClientsOnExit | Boolean  | Adds listeners to remove clients on exit  | `false`
 
 
-### adapter.config([options])
-Function to configure the adapter for metro
+### adapter.config([options], [cb])
+Function to configure the adapter, allows for setting flags as well as enabling clean exit logic on app termination.
+To add the listeners for cleanExit a primus instance must be passed in.
+
+**Note**: Preforming cleanExit can take a while especially if the http server timeout is set too high.
+The reason for that is due to the node design, see [node issue #2642](https://github.com/nodejs/node/issues/2642).
+I recommend setting http server timeout to 10s `require('http').createServer().setTimeout(10000);`
 
 Name                   | Type     |Description                                | Default
 -----------------------|----------|-------------------------------------------|---------------
 omegaSupreme           | Boolean  | Use `omega-supreme`                       | `initilized value`
 metroplex              | Boolean  | Use `metroplex`                           | `initilized value`
-addRemoveClientsOnExit | Boolean  | Adds listeners to remove clients on exit  | `false`
-getClients             | Function | Get clients connected to this server      | `undefined`
+primus                 | Object   | Primus instance to be used to preform clean exit| `undefined`
+cb                     | Function | Callback function after a clean exit is preformed | `undefined`
 
