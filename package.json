@@ -1,6 +1,6 @@
 {
   "name": "primus-rooms-redis-adapter",
-  "version": "1.1.0",
+  "version": "2.1.0-beta",
   "description": "redis adapter for primus-rooms plugin. Supports omega-supreme and metroplex",
   "main": "index.js",
   "scripts": {
@@ -29,10 +29,12 @@
     "eslint-config-google": "0.7.1",
     "expect.js": "0.3.1",
     "jscs": "3.0.7",
-    "mocha": "3.2.0"
+    "mocha": "3.2.0",
+    "ws": "1.1.1"
   },
   "dependencies": {
     "ioredis": "*",
+    "primus": "*",
     "primus-rooms-adapter": "0.3.2"
   }
 }

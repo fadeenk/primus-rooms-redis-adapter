@@ -39,7 +39,7 @@ var primus = new Primus(http, {
   },
 });
 
-// by setting the property
+// or by setting the property
 primus.adapter = new Adapter();
 ```
 
@@ -52,15 +52,13 @@ related to the multiple servers setup.
 
 ```javascript
 var options = {
-  omegaSupreme: true,
-  metroplex: true,
-  getClients: function() {
-    return Object.keys(primus.connections);
-  },
-  addRemoveClientsOnExit: true,
+  metroplexOmegaSupreme: true,
+  primus: primus,
 };
 
-adapter.config(options);
+adapter.config(options, function(){
+  console.log('clean exit');
+});
 // or 
 primus.adapter.config(options);
 ```
@@ -75,18 +73,22 @@ The following (optional) options can be provided:
 Name                   | Type     | Description                               | Default
 -----------------------|----------|-------------------------------------------|---------------
 namespace              | String   | namespace to use in redis storage         | `bumblebee`
-omegaSupreme           | Boolean  | Use `omega-supreme`                       | `false`
-metroplex              | Boolean  | Use `metroplex`                           | `false`
-addRemoveClientsOnExit | Boolean  | Adds listeners to remove clients on exit  | `false`
+metroplexOmegaSupreme  | Boolean  | Use `omega-supreme` to broadcast to all servers through `metroplex` | `false`
 
 
-### adapter.config([options])
-Function to configure the adapter for metro
+### adapter.config([options], [cb])
+Function to configure the adapter, allows for setting flags as well as enabling clean exit logic on app termination.
+To add the listeners for cleanExit a primus instance must be passed in.
+
+**Note**: Preforming cleanExit can take a while especially if the http server timeout is set too high.
+The reason for that is due to node design, see [issue #2642](https://github.com/nodejs/node/issues/2642).
+I recommend setting http server timeout to based on the server load higher load longer time to finish up
+ sending data to the user. To set the time out use `require('http').createServer().setTimeout(x);` where x
+ is the timeout duration you want to allow a keep-alive request to be in idle before terminating it.
 
 Name                   | Type     |Description                                | Default
 -----------------------|----------|-------------------------------------------|---------------
-omegaSupreme           | Boolean  | Use `omega-supreme`                       | `initilized value`
-metroplex              | Boolean  | Use `metroplex`                           | `initilized value`
-addRemoveClientsOnExit | Boolean  | Adds listeners to remove clients on exit  | `false`
-getClients             | Function | Get clients connected to this server      | `undefined`
+metroplexOmegaSupreme  | Boolean  | Use `omega-supreme` to broadcast to all servers through `metroplex` | `initilized value`
+primus                 | Object   | Primus instance to be used to preform clean exit| `undefined`
+cb                     | Function | Callback function after a clean exit is preformed | `undefined`
 
