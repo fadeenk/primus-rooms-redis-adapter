@@ -81,8 +81,10 @@ Function to configure the adapter, allows for setting flags as well as enabling 
 To add the listeners for cleanExit a primus instance must be passed in.
 
 **Note**: Preforming cleanExit can take a while especially if the http server timeout is set too high.
-The reason for that is due to the node design, see [node issue #2642](https://github.com/nodejs/node/issues/2642).
-I recommend setting http server timeout to 10s `require('http').createServer().setTimeout(10000);`
+The reason for that is due to node design, see [issue #2642](https://github.com/nodejs/node/issues/2642).
+I recommend setting http server timeout to based on the server load higher load longer time to finish up
+ sending data to the user. To set the time out use `require('http').createServer().setTimeout(x);` where x
+ is the timeout duration you want to allow a keep-alive request to be in idle before terminating it.
 
 Name                   | Type     |Description                                | Default
 -----------------------|----------|-------------------------------------------|---------------
