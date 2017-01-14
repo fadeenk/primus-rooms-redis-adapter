@@ -3,6 +3,9 @@
 var Adapter = require('../');
 var Redis = require('ioredis');
 var expect = require('expect.js');
+var Primus = require('primus');
+var http = require('http').createServer();
+var primus = new Primus(http);
 
 describe('primus-rooms-adapter', function() {
   var redis = new Redis();
@@ -21,29 +24,23 @@ describe('primus-rooms-adapter', function() {
   });
 
   it('initialized correctly', function() {
-    var adapter = new Adapter(redis, {metroplex: true});
+    var adapter = new Adapter(redis, {metroplexOmegaSupreme: true});
     expect(adapter.rooms).to.be(undefined);
     expect(adapter.sids).to.be(undefined);
     expect(adapter.namespace).to.be('bumblebee:');
-    expect(adapter.omegaSupreme).to.be(false);
-    expect(adapter.metroplex).to.be(true);
+    expect(adapter.metroplexOmegaSupreme).to.be(true);
     expect(adapter.redis).to.be.an('object');
   });
 
   it('configure correctly', function() {
     var adapter = new Adapter(redis);
-    expect(adapter.omegaSupreme).to.be(false);
-    expect(adapter.metroplex).to.be(false);
+    expect(adapter.metroplexOmegaSupreme).to.be(false);
     adapter.config({
-      omegaSupreme: true,
-      metroplex: true,
-      getClients: function() {
-        return Object.keys(primus.connections);
-      },
+      metroplexOmegaSupreme: true,
+      primus: primus,
     });
-    expect(adapter.omegaSupreme).to.be(true);
-    expect(adapter.metroplex).to.be(true);
+    expect(adapter.metroplexOmegaSupreme).to.be(true);
     expect(adapter.redis).to.be.an('object');
-    expect(adapter.getClients).to.be.a('function');
+    expect(adapter.hasPrimus).to.be(true);
   });
 });

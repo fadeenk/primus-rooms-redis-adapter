@@ -52,8 +52,7 @@ related to the multiple servers setup.
 
 ```javascript
 var options = {
-  omegaSupreme: true,
-  metroplex: true,
+  metroplexOmegaSupreme: true,
   primus: primus,
 };
 
@@ -74,8 +73,7 @@ The following (optional) options can be provided:
 Name                   | Type     | Description                               | Default
 -----------------------|----------|-------------------------------------------|---------------
 namespace              | String   | namespace to use in redis storage         | `bumblebee`
-omegaSupreme           | Boolean  | Use `omega-supreme`                       | `false`
-metroplex              | Boolean  | Use `metroplex`                           | `false`
+metroplexOmegaSupreme  | Boolean  | Use `omega-supreme` to broadcast to all servers through `metroplex` | `false`
 
 
 ### adapter.config([options], [cb])
@@ -88,8 +86,7 @@ I recommend setting http server timeout to 10s `require('http').createServer().s
 
 Name                   | Type     |Description                                | Default
 -----------------------|----------|-------------------------------------------|---------------
-omegaSupreme           | Boolean  | Use `omega-supreme`                       | `initilized value`
-metroplex              | Boolean  | Use `metroplex`                           | `initilized value`
+metroplexOmegaSupreme  | Boolean  | Use `omega-supreme` to broadcast to all servers through `metroplex` | `initilized value`
 primus                 | Object   | Primus instance to be used to preform clean exit| `undefined`
 cb                     | Function | Callback function after a clean exit is preformed | `undefined`
 
