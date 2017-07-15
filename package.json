@@ -1,40 +1,40 @@
-{
-  "name": "primus-rooms-redis-adapter",
-  "version": "2.1.1",
-  "description": "redis adapter for primus-rooms plugin. Supports omega-supreme and metroplex",
-  "main": "index.js",
-  "scripts": {
-    "pretest": "eslint . && jscs .",
-    "test": "./node_modules/.bin/mocha"
-  },
-  "author": "Fadee Kannah <fadeekannah@gmail.com>",
-  "homepage": "https://github.com/fadeenk/primus-rooms-redis-adapter",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/fadeenk/primus-rooms-redis-adapter.git"
-  },
-  "keywords": [
-    "primus",
-    "primus-rooms",
-    "primus-rooms-adapter",
-    "primus-rooms-redis-adapter",
-    "rooms",
-    "store",
-    "redis",
-    "adapter"
-  ],
-  "license": "MIT",
-  "devDependencies": {
-    "eslint": "4.1.0",
-    "eslint-config-google": "0.7.1",
-    "expect.js": "0.3.1",
-    "jscs": "3.0.7",
-    "mocha": "3.4.1",
-    "ws": "3.0.0"
-  },
-  "dependencies": {
-    "ioredis": "*",
-    "primus": "*",
-    "primus-rooms-adapter": "0.3.2"
-  }
-}
+{
+  "name": "primus-rooms-redis-adapter",
+  "version": "2.1.1",
+  "description": "redis adapter for primus-rooms plugin. Supports omega-supreme and metroplex",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "eslint . && jscs .",
+    "test": "./node_modules/.bin/mocha"
+  },
+  "author": "Fadee Kannah <fadeekannah@gmail.com>",
+  "homepage": "https://github.com/fadeenk/primus-rooms-redis-adapter",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fadeenk/primus-rooms-redis-adapter.git"
+  },
+  "keywords": [
+    "primus",
+    "primus-rooms",
+    "primus-rooms-adapter",
+    "primus-rooms-redis-adapter",
+    "rooms",
+    "store",
+    "redis",
+    "adapter"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "4.2.0",
+    "eslint-config-google": "0.9.1",
+    "expect.js": "0.3.1",
+    "jscs": "3.0.7",
+    "mocha": "3.4.1",
+    "ws": "3.0.0"
+  },
+  "dependencies": {
+    "ioredis": "*",
+    "primus": "*",
+    "primus-rooms-adapter": "0.3.2"
+  }
+}
