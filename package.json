@@ -33,7 +33,7 @@
     "ws": "6.2.1"
   },
   "dependencies": {
-    "ioredis": "*",
+    "ioredis": ">=4.10.0",
     "primus": "*",
     "primus-rooms-adapter": "0.3.2"
   }
