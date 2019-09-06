@@ -1,0 +1,21 @@
+on: 
+  push:
+    branches:
+      - master
+      
+name: Test and Publish
+jobs:
+  publish:
+    name: Test and Publish
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: npm install and test
+      run: |
+        npm install
+        npm test
+    - name: Publish
+      uses: mikeal/merge-release@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
