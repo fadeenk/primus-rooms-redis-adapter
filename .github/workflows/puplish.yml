@@ -2,7 +2,6 @@ on:
   push:
     branches:
       - master
-      - fadeenk-patch-2
       
 name: Test and Publish
 jobs:
